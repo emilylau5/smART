@@ -11,6 +11,26 @@ class NewLogin extends Component {
     email: ""
   };
 
+  handleInputChange = event => {
+
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+    console.log(this.state);
+  };
+
+  SignUp = event => {
+    event.preventDefault()
+    API.createUser({
+      first_name: this.state.first_name,
+      last_name: this.state.last_name,
+      username: this.state.username,
+      password: this.state.password,
+      email: this.state.email
+    })
+  }
+
   render(){
     return(
     <div className="container">
@@ -24,7 +44,8 @@ class NewLogin extends Component {
               <label htmlFor="first_name">First Name</label>
               <input 
                 value={this.state.first_name}
-                name="firstname"
+                onChange={this.handleInputChange}
+                name="first_name"
                 className="form-control" 
                 id="firstname" 
                 placeholder="First Name" 
@@ -34,7 +55,8 @@ class NewLogin extends Component {
               <label htmlFor="last_name">Last Name</label>
               <input 
                 value={this.state.last_name}
-                name="lastname"
+                onChange={this.handleInputChange}
+                name="last_name"
                 className="form-control" 
                 id="lastname" 
                 placeholder="Last Name" 
@@ -44,6 +66,7 @@ class NewLogin extends Component {
               <label htmlFor="query">Username</label>
               <input 
                 value={this.state.username}
+                onChange={this.handleInputChange}
                 name="username"
                 className="form-control" 
                 id="username" 
@@ -58,6 +81,7 @@ class NewLogin extends Component {
                 id="password" 
                 placeholder="Password"
                 value={this.state.password}
+                onChange={this.handleInputChange}
                 name="password" 
                 />
             </div>
@@ -65,6 +89,7 @@ class NewLogin extends Component {
               <label htmlFor="first_name">Email</label>
               <input 
                 value={this.state.email}
+                onChange={this.handleInputChange}
                 name="email"
                 className="form-control" 
                 id="email" 
@@ -74,14 +99,14 @@ class NewLogin extends Component {
             <button 
               type="submit" 
               className="btn btn-default"
-              onClick={this.ProceedLogin}
+              onClick={this.SignUp}
               >Submit
             </button>
           </form>
         </div>
       </div>
       <div className="panel-heading">
-          <a href="/login"><button 
+          <a href="/"><button 
           id="login"
           className="panel-title btn btn-default"
           >Already Have One?</button></a>

@@ -1,26 +1,39 @@
 import React, { Component } from "react";
 import API from "../../utils/API"
 import "./Login.css";
+import { withRouter } from "react-router-dom";
+
 class Login extends Component {
 
   state = {
     username: "",
-    password: ""
+    password: "",
+  };
+  
+  handleInputChange = event => {
+
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+    console.log(this.state);
   };
 
-//   ProceedLogin = event => {
-//     event.preventDefault();
-// ======== API.loginChecker();
-//     if (this.state.username && this.state.password) {
-//       API.getArticles({
-//         query: this.state.query,
-//         startDate: this.state.startDate,
-//         endDate: this.state.endDate
-//       })
-//       .then(res => this.setState({ articles: res.data.response.docs, articlesSubmitted: true}))
-//       .catch(err => console.log(err))
-//     }
-//   }
+  ProceedLogin = event => {
+    // event.preventDefault();
+    API.loginChecker({
+      username: this.state.username,
+      password: this.state.password
+    }).then(function(response){
+      if(response.data){
+        console.log("logged in yay")
+        withRouter(({history}) => (
+          history.push("/home")
+        ))
+      }
+    })
+
+  }
 
   render(){
     return(
@@ -35,6 +48,7 @@ class Login extends Component {
               <label htmlFor="query">Username</label>
               <input 
                 value={this.state.username}
+                onChange={this.handleInputChange}
                 name="username"
                 className="form-control" 
                 id="username" 
@@ -49,6 +63,7 @@ class Login extends Component {
                 id="password" 
                 placeholder="Password"
                 value={this.state.password}
+                onChange={this.handleInputChange}
                 name="password" 
                 />
             </div>
@@ -62,7 +77,7 @@ class Login extends Component {
         </div>
       </div>
       <div className="panel-heading">
-          <a href="/users"><button 
+          <a href="/newuser"><button 
           id="createAcc"
           className="panel-title btn btn-default"
           >Create An Account</button></a>

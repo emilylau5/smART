@@ -12,10 +12,16 @@ const postSchema = new Schema({
   },
   url: {
     type: mongoose.SchemaTypes.Url
-  }
+  },
   createdAt: {
     type: Date,
     default: Date.now
+  },
+  username: {
+    type: String
+  },
+  userID: {
+    type: String
   }
 });
 
