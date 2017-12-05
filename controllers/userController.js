@@ -9,22 +9,30 @@ module.exports = {
     .catch(err => res.status(422).json(err))
   },
   currentUser: function(req, res) {
+    console.log("req.body.username is", req.body.username)
+    console.log("req.body.password is", req.body.password)
     db.Users
-    .find({username: req.body.username})
+    .find({username: `${req.body.username}`})
     .then(dbUser => {
-    if(dbUser.password === req.body.password){
-      res.json(true)
+      const response = {
+        auth: true,
+        _id: dbUser[0]._id,
+        username: dbUser[0].username
+      }
+      console.log("dbUser.password is", dbUser[0].password)
+    if(dbUser[0].password === req.body.password){
+      res.json(response)
     }
     else{
       res.json(false)
     }})
     .catch(err => res.status(422).json(err))
   },
+
   createUser: function(req, res) {
     db.Users
     .create(req.body)
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
   }
-
 }

@@ -7,11 +7,10 @@ const postSchema = new Schema({
     type: String
   },
   img: {
-    data: Buffer,
-    contentType: String
+    type: String
   },
-  url: {
-    type: mongoose.SchemaTypes.Url
+  videoLink: {
+    type: String
   },
   createdAt: {
     type: Date,
@@ -20,9 +19,10 @@ const postSchema = new Schema({
   username: {
     type: String
   },
-  userID: {
-    type: String
-  }
+  liked: [{ 
+    type: Schema.Types.ObjectId, 
+    ref: 'User' 
+  }]
 });
 
 const Posts = mongoose.model("Posts", postSchema);

@@ -1,14 +1,20 @@
 import React, { Component } from "react";
 import API from "../../utils/API"
 import "./Login.css";
-import { withRouter } from "react-router-dom";
+var Link = require("react-router-dom").Link
 
 class Login extends Component {
+  constructor(props){
 
-  state = {
-    username: "",
-    password: "",
-  };
+    super(props);
+
+    this.state = {
+      username: "",
+      password: "",
+    };
+
+    this.ProceedLogin = this.ProceedLogin.bind(this)
+}
   
   handleInputChange = event => {
 
@@ -19,17 +25,21 @@ class Login extends Component {
     console.log(this.state);
   };
 
-  ProceedLogin = event => {
-    // event.preventDefault();
+  ProceedLogin(event) {
+    event.preventDefault();
+    console.log(this.state.username)
     API.loginChecker({
       username: this.state.username,
       password: this.state.password
     }).then(function(response){
-      if(response.data){
-        console.log("logged in yay")
-        withRouter(({history}) => (
-          history.push("/home")
-        ))
+      console.log(response)
+      if(response){
+        console.log(response.data)
+        sessionStorage.setItem("userID", response.data._id)
+        sessionStorage.setItem("username", response.data.username)
+      }
+      else{
+        alert("Credentials not matched!")
       }
     })
 
@@ -76,12 +86,10 @@ class Login extends Component {
           </form>
         </div>
       </div>
-      <div className="panel-heading">
-          <a href="/newuser"><button 
-          id="createAcc"
-          className="panel-title btn btn-default"
-          >Create An Account</button></a>
-      </div>
+        <Link to="/newuser"><button 
+        id="createAcc"
+        className="btn btn-default"
+        >Create An Account</button></Link>
     </div>
   )}
 }

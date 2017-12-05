@@ -4,7 +4,9 @@
     "express": "^4.16.2",
     "mongoose": "^4.13.5",
     "mongoose-type-url": "^1.0.2",
-    "path": "^0.12.7"
+    "nodemon": "^1.12.1",
+    "path": "^0.12.7",
+    "react-file-input": "^0.2.5"
   },
   "proxy": "http://localhost:3001"
 }

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API"
+import './CreateAcc.css';
+var Link = require("react-router-dom").Link
 
 class NewLogin extends Component {
 
@@ -28,6 +30,8 @@ class NewLogin extends Component {
       username: this.state.username,
       password: this.state.password,
       email: this.state.email
+    }).then(function(res) {
+      console.log("sign up success")
     })
   }
 
@@ -105,12 +109,11 @@ class NewLogin extends Component {
           </form>
         </div>
       </div>
-      <div className="panel-heading">
-          <a href="/"><button 
+          <Link to="/login">
+          <button 
           id="login"
-          className="panel-title btn btn-default"
-          >Already Have One?</button></a>
-      </div>
+          className="btn btn-default"
+          >Already Have One?</button></Link>
     </div>
   )}
 }
