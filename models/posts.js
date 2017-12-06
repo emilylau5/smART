@@ -6,7 +6,10 @@ const postSchema = new Schema({
   caption: {
     type: String
   },
-  img: {
+  imgSRC: {
+    type: String
+  },
+  imgHREF: {
     type: String
   },
   videoLink: {

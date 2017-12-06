@@ -1,5 +1,7 @@
 import React, { Component }from "react";
 import API from "../../utils/API"
+import './Post.css';
+
 
 export default class Post extends Component {
 
@@ -27,17 +29,11 @@ export default class Post extends Component {
       <div>
       {this.props.results.map((value, i) =>(
         <div className="panel panel-default" key={i}>
-          <div className="panel-heading">{value.caption}</div>
+          <div className="panel-heading postTitle">{value.caption}<br/><p className="postUser">Posted By: {value.username}</p></div>
           <div className="panel-body">
-            <div className="postTitle">
-              <h5>By: {value.username}</h5>
-            </div>
-            <div className="postDate">
-              <p>{value.createdAt}</p>
-            </div>
-            {value.img ?
+            {value.imgSRC ?
               (<div className="postImg">
-                <a><img src={value.img}/></a>
+                <a href={value.imgHREF}><img src={value.imgSRC}/></a>
               </div>)
             : (<div className="postVid">
               <iframe width="560" height="450" 
@@ -45,14 +41,9 @@ export default class Post extends Component {
               frameBorder="0" gesture="media" 
               allow="encrypted-media" allowFullScreen></iframe>
             </div>)}
-            <button 
-            type="button" 
-            className="btn btn-info postLike" 
-            data-caption={value.caption} 
-            data-date={value.createdAt} 
-            data-img={value.img} 
-            data-videolink={value.videoLink} 
-            onClick={this.likeThisPost}>❤</button>
+            <div>
+              <p className="postDate">{value.createdAt}</p>
+            </div>
           </div>
         </div>
         ))}
@@ -60,3 +51,11 @@ export default class Post extends Component {
     )
   }
 }
+           // <button 
+           //  type="button" 
+           //  className="btn btn-info postLike" 
+           //  data-caption={value.caption} 
+           //  data-date={value.createdAt} 
+           //  data-imgsrc={value.imgSRC} 
+           //  data-videolink={value.videoLink} 
+           //  onClick={this.likeThisPost}>❤</button>

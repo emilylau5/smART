@@ -3,6 +3,7 @@ import API from "../../utils/API"
 import "./Login.css";
 var Link = require("react-router-dom").Link
 
+
 class Login extends Component {
   constructor(props){
 
@@ -37,9 +38,10 @@ class Login extends Component {
         console.log(response.data)
         sessionStorage.setItem("userID", response.data._id)
         sessionStorage.setItem("username", response.data.username)
+         window.location.href = "/"
       }
       else{
-        alert("Credentials not matched!")
+        alert("Login information incorrect!")
       }
     })
 

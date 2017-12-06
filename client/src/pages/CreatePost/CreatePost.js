@@ -8,8 +8,10 @@ class NewPost extends Component {
   state = {
     username: "",
     caption: "",
-    img: "",
-    videoLink: ""
+    imgSRC: "",
+    imgHREF: "",
+    videoLink: "",
+    img: ""
   };
 
   componentDidMount() {
@@ -33,20 +35,28 @@ class NewPost extends Component {
   PostIt = event => {
     event.preventDefault()
     let imgSlice = this.state.img
+    let hrefIndex = imgSlice.indexOf("href")
     let srcIndex = imgSlice.indexOf("src")
     let altIndex = imgSlice.indexOf("alt")
     let imgLink = imgSlice.slice(srcIndex + 5, altIndex - 2)
+    let imgHREF = imgSlice.slice(hrefIndex + 6, srcIndex - 7)
+    console.log(imgLink + "link")
+    console.log(imgHREF + "href")
     let vidSlice = this.state.videoLink
     let linkInfo = vidSlice.substring(vidSlice.length - 11)
     let vidLink = "https://www.youtube.com/embed/" + linkInfo
-    API.createPost({
-      username: this.state.username,
-      caption: this.state.caption,
-      img: imgLink,
-      videoLink: vidLink
-    }).then(function(res){
-      console.log("post made!")
-    })
+    if (this.state.caption){
+      API.createPost({
+        username: this.state.username,
+        caption: this.state.caption,
+        imgSRC: imgLink,
+        imgHREF: imgHREF,
+        videoLink: vidLink
+      }).then(function(res){
+        console.log("post made!")
+        window.location.href = "/"
+      })
+    }
   }
 
   render(){

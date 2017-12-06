@@ -3,6 +3,7 @@ import API from "../../utils/API"
 import './CreateAcc.css';
 var Link = require("react-router-dom").Link
 
+
 class NewLogin extends Component {
 
   state = {
@@ -24,16 +25,17 @@ class NewLogin extends Component {
 
   SignUp = event => {
     event.preventDefault()
-    API.createUser({
-      first_name: this.state.first_name,
-      last_name: this.state.last_name,
-      username: this.state.username,
-      password: this.state.password,
-      email: this.state.email
-    }).then(function(res) {
-      console.log("sign up success")
-    })
-  }
+      API.createUser({
+        first_name: this.state.first_name,
+        last_name: this.state.last_name,
+        username: this.state.username,
+        password: this.state.password,
+        email: this.state.email
+      }).then(function(res) {
+        console.log("sign up success")
+        window.location.href = "/login"
+      })
+    }
 
   render(){
     return(
