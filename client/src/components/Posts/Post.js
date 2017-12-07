@@ -33,7 +33,7 @@ export default class Post extends Component {
           <div className="panel-body">
             {value.imgSRC ?
               (<div className="postImg">
-                <a href={value.imgHREF}><img src={value.imgSRC}/></a>
+                <a href={value.imgHREF} target="_blank"><img src={value.imgSRC}/></a>
               </div>)
             : (<div className="postVid">
               <iframe width="560" height="450" 

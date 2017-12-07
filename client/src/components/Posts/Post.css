@@ -10,3 +10,8 @@
   font-size: 15px;
   text-align: right;
 }
+img {
+  width: 75%;
+  margin: auto;
+  display: block;
+}
