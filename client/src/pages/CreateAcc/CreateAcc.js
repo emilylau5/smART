@@ -39,84 +39,86 @@ class NewLogin extends Component {
 
   render(){
     return(
-    <div className="container">
-      <div className="panel panel-default">
-        <div className="panel-heading">
-          <h3 className="panel-title">Create An Account!</h3>
-        </div>
-        <div className="panel-body">
-          <form>
-            <div className="form-group">
-              <label htmlFor="first_name">First Name</label>
-              <input 
-                value={this.state.first_name}
-                onChange={this.handleInputChange}
-                name="first_name"
-                className="form-control" 
-                id="firstname" 
-                placeholder="First Name" 
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="last_name">Last Name</label>
-              <input 
-                value={this.state.last_name}
-                onChange={this.handleInputChange}
-                name="last_name"
-                className="form-control" 
-                id="lastname" 
-                placeholder="Last Name" 
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="query">Username</label>
-              <input 
-                value={this.state.username}
-                onChange={this.handleInputChange}
-                name="username"
-                className="form-control" 
-                id="username" 
-                placeholder="Username" 
-              />
-            </div>
-            <div className="form-group">
-               <label htmlFor="endDate">Password</label>
-              <input 
-                type="password" 
-                className="form-control" 
-                id="password" 
-                placeholder="Password"
-                value={this.state.password}
-                onChange={this.handleInputChange}
-                name="password" 
+    <body>
+      <div className="container">
+        <div className="panel panel-default">
+          <div className="panel-heading">
+            <h3 className="panel-title">Create An Account!</h3>
+          </div>
+          <div className="panel-body">
+            <form>
+              <div className="form-group">
+                <label htmlFor="first_name">First Name</label>
+                <input 
+                  value={this.state.first_name}
+                  onChange={this.handleInputChange}
+                  name="first_name"
+                  className="form-control" 
+                  id="firstname" 
+                  placeholder="First Name" 
                 />
-            </div>
-            <div className="form-group">
-              <label htmlFor="first_name">Email</label>
-              <input 
-                value={this.state.email}
-                onChange={this.handleInputChange}
-                name="email"
-                className="form-control" 
-                id="email" 
-                placeholder="Email" 
-              />
-            </div>
-            <button 
-              type="submit" 
-              className="btn btn-default"
-              onClick={this.SignUp}
-              >Submit
-            </button>
-          </form>
+              </div>
+              <div className="form-group">
+                <label htmlFor="last_name">Last Name</label>
+                <input 
+                  value={this.state.last_name}
+                  onChange={this.handleInputChange}
+                  name="last_name"
+                  className="form-control" 
+                  id="lastname" 
+                  placeholder="Last Name" 
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="query">Username</label>
+                <input 
+                  value={this.state.username}
+                  onChange={this.handleInputChange}
+                  name="username"
+                  className="form-control" 
+                  id="username" 
+                  placeholder="Username" 
+                />
+              </div>
+              <div className="form-group">
+                 <label htmlFor="endDate">Password</label>
+                <input 
+                  type="password" 
+                  className="form-control" 
+                  id="password" 
+                  placeholder="Password"
+                  value={this.state.password}
+                  onChange={this.handleInputChange}
+                  name="password" 
+                  />
+              </div>
+              <div className="form-group">
+                <label htmlFor="first_name">Email</label>
+                <input 
+                  value={this.state.email}
+                  onChange={this.handleInputChange}
+                  name="email"
+                  className="form-control" 
+                  id="email" 
+                  placeholder="Email" 
+                />
+              </div>
+              <button 
+                type="submit" 
+                className="btn btn-default"
+                onClick={this.SignUp}
+                >Submit
+              </button>
+            </form>
+          </div>
         </div>
+            <Link to="/login">
+            <button 
+            id="login"
+            className="btn btn-default"
+            >Already Have One?</button></Link>
       </div>
-          <Link to="/login">
-          <button 
-          id="login"
-          className="btn btn-default"
-          >Already Have One?</button></Link>
-    </div>
+    </body>
   )}
 }
 

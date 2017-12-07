@@ -25,7 +25,9 @@ class Home extends Component {
 
   render() {
     return (
-      <Post results={this.state.posts}/>
+      <body>
+       <Post results={this.state.posts}/>
+      </body>
     )}
 }
 export default Home;

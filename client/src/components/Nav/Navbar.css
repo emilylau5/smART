@@ -1,10 +1,10 @@
 .container-fluid {
   padding-top: 20px;
   padding-bottom: 20px;
-  background-color: white;
+  background-color: #B3D5FC;
 }
 
 .navbar-brand {
-  color: black !important;
-  font-size: 30sspx;
+  color: #96888E !important;
+  font-size: 30px;
 }

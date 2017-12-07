@@ -61,59 +61,61 @@ class NewPost extends Component {
 
   render(){
     return(
-      <div className="container">
-        <form>
-          <div className="form-group">
-            <label htmlFor="caption">Caption</label>
-            <input 
-              value={this.state.caption}
+      <body>
+        <div className="container">
+          <form>
+            <div className="form-group">
+              <label htmlFor="caption">Caption</label>
+              <input 
+                value={this.state.caption}
+                onChange={this.handleInputChange}
+                name="caption"
+                className="form-control" 
+                id="Caption" 
+                placeholder="Caption" 
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="videoLink">Link to Video</label>
+              <input 
+              value={this.state.videoLink}
               onChange={this.handleInputChange}
-              name="caption"
+              name="videoLink" 
+              type="url"
               className="form-control" 
-              id="Caption" 
-              placeholder="Caption" 
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="videoLink">Link to Video</label>
-            <input 
-            value={this.state.videoLink}
-            onChange={this.handleInputChange}
-            name="videoLink" 
-            type="url"
-            className="form-control" 
-            id="videoLink" 
-            placeholder="Link"/>
-          </div>
-          <div className="form-group">
-            <a href="https://imgbb.com/" target="_blank">
-              <div className="picLink btn btn-default">
-                Create Image Link & Copy HTML Thumbnail Link
-              </div>
-            </a>
-          </div>
-          <div className="form-group">
-            <label htmlFor="img">Paste HTML Thumbnail Link</label>
-            <input 
-            value={this.state.img}
-            onChange={this.handleInputChange}
-            name="img" 
-            type="url"
-            className="form-control" 
-            id="img"
-            placeholder="HTML Thumbnail Link"/>
-          </div>
-          <button 
-          type="submit" 
-          className="postsubmit btn btn-default"
-          onClick={this.PostIt}
-          >Submit</button>
-          <Link to="/">
-          <button
-          className="postcancel btn btn-default"
-          >Cancel</button></Link>
-        </form>
-      </div>
+              id="videoLink" 
+              placeholder="Link"/>
+            </div>
+            <div className="form-group">
+              <a href="https://imgbb.com/" target="_blank">
+                <div className="picLink btn btn-default">
+                  Create Image Link & Copy HTML Thumbnail Link
+                </div>
+              </a>
+            </div>
+            <div className="form-group">
+              <label htmlFor="img">Paste HTML Thumbnail Link</label>
+              <input 
+              value={this.state.img}
+              onChange={this.handleInputChange}
+              name="img" 
+              type="url"
+              className="form-control" 
+              id="img"
+              placeholder="HTML Thumbnail Link"/>
+            </div>
+            <button 
+            type="submit" 
+            className="postsubmit btn btn-default"
+            onClick={this.PostIt}
+            >Submit</button>
+            <Link to="/">
+            <button
+            className="postcancel btn btn-default"
+            >Cancel</button></Link>
+          </form>
+        </div>
+      </body>
     )
   }
 }

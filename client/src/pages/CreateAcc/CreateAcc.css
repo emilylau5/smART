@@ -16,3 +16,8 @@
 #login {
   margin-bottom: 25%;
 }
+
+.panel-heading {
+  background-color: #B3D5FC !important;
+  color: #96888E !important;
+}

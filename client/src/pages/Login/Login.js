@@ -49,50 +49,52 @@ class Login extends Component {
 
   render(){
     return(
-    <div className="container">
-      <div className="panel panel-default">
-        <div className="panel-heading">
-          <h3 className="panel-title">Sign In!</h3>
-        </div>
-        <div className="panel-body">
-          <form>
-            <div className="form-group">
-              <label htmlFor="query">Username</label>
-              <input 
-                value={this.state.username}
-                onChange={this.handleInputChange}
-                name="username"
-                className="form-control" 
-                id="username" 
-                placeholder="Username" 
-              />
+      <body>
+        <div className="container">
+          <div className="panel panel-default">
+            <div className="panel-heading">
+              <h3 className="panel-title">Sign In!</h3>
             </div>
-            <div className="form-group">
-               <label htmlFor="endDate">Password</label>
-              <input 
-                type="password" 
-                className="form-control" 
-                id="password" 
-                placeholder="Password"
-                value={this.state.password}
-                onChange={this.handleInputChange}
-                name="password" 
-                />
+            <div className="panel-body">
+              <form>
+                <div className="form-group">
+                  <label htmlFor="query">Username</label>
+                  <input 
+                    value={this.state.username}
+                    onChange={this.handleInputChange}
+                    name="username"
+                    className="form-control" 
+                    id="username" 
+                    placeholder="Username" 
+                  />
+                </div>
+                <div className="form-group">
+                   <label htmlFor="endDate">Password</label>
+                  <input 
+                    type="password" 
+                    className="form-control" 
+                    id="password" 
+                    placeholder="Password"
+                    value={this.state.password}
+                    onChange={this.handleInputChange}
+                    name="password" 
+                    />
+                </div>
+                <button 
+                  type="submit" 
+                  className="btn btn-default"
+                  onClick={this.ProceedLogin}
+                  >Submit
+                </button>
+              </form>
             </div>
-            <button 
-              type="submit" 
-              className="btn btn-default"
-              onClick={this.ProceedLogin}
-              >Submit
-            </button>
-          </form>
+          </div>
+            <Link to="/newuser"><button 
+            id="createAcc"
+            className="btn btn-default"
+            >Create An Account</button></Link>
         </div>
-      </div>
-        <Link to="/newuser"><button 
-        id="createAcc"
-        className="btn btn-default"
-        >Create An Account</button></Link>
-    </div>
+      </body>
   )}
 }
 
