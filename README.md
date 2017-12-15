@@ -26,5 +26,5 @@ If you want to create a post:
 
 
 ### Project Created By
-## Emily Lau - [emilylau5](https://github.com/emilylau5)
+#### Emily Lau - [emilylau5](https://github.com/emilylau5)
 
